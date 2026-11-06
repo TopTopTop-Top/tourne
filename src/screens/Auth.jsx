@@ -33,30 +33,31 @@ export default function Auth() {
   }
 
   return (
-    <div className="stack auth-screen">
-      <header className="topbar">
-        <div className="brand">
-          <Mark />
-          <div>
-            <strong>Tourne</strong>
-            <span>Ligue de padel</span>
+    <div className="auth-land">
+      <div className="auth-atmosphere" aria-hidden="true">
+        <div className="auth-court" />
+        <div className="auth-glow" />
+      </div>
+
+      <div className="auth-panel stack">
+        <header className="auth-brand">
+          <Mark size={44} />
+          <h1 className="auth-name">Tourne</h1>
+          <p className="auth-tag">Ligue de padel</p>
+        </header>
+
+        <p className="auth-pitch">Les partenaires tournent. Les 4 joueurs valident le score.</p>
+
+        <form className="auth-form stack" onSubmit={submit}>
+          <div className="seg" role="group" aria-label="Connexion">
+            <button type="button" aria-pressed={tab === "login"} onClick={() => setTab("login")}>
+              Connexion
+            </button>
+            <button type="button" aria-pressed={tab === "signup"} onClick={() => setTab("signup")}>
+              Inscription
+            </button>
           </div>
-        </div>
-      </header>
 
-      <p className="pitch">Crée ou rejoins une ligue. Les 4 joueurs du match valident le score.</p>
-
-      <section className="section stack">
-        <div className="seg" role="group" aria-label="Connexion">
-          <button type="button" aria-pressed={tab === "login"} onClick={() => setTab("login")}>
-            Connexion
-          </button>
-          <button type="button" aria-pressed={tab === "signup"} onClick={() => setTab("signup")}>
-            Inscription
-          </button>
-        </div>
-
-        <form className="stack" onSubmit={submit}>
           {tab === "signup" ? (
             <label className="field">
               Prénom
@@ -84,12 +85,14 @@ export default function Auth() {
             {busy ? "…" : tab === "login" ? "Entrer" : "Créer mon compte"}
           </button>
         </form>
-      </section>
 
-      <button type="button" className="btn" onClick={() => auth.useLocal()}>
-        Continuer en local (sans compte)
-      </button>
-      <p className="note">Le mode local reste sur cet appareil. Le cloud synchronise les ligues entre joueurs.</p>
+        <div className="auth-alt stack tight">
+          <button type="button" className="btn btn-ghost" onClick={() => auth.useLocal()}>
+            Continuer en local
+          </button>
+          <p className="note">Sans compte, les données restent sur cet appareil.</p>
+        </div>
+      </div>
     </div>
   );
 }

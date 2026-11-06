@@ -4,8 +4,8 @@
   "description": "Ligue de padel : les partenaires tournent, les matchs font 3 sets, le niveau se lit dans les scores.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0c1210",
-  "theme_color": "#0c1210",
+  "background_color": "#e7f0e1",
+  "theme_color": "#e8f0e2",
   "lang": "fr",
   "icons": [
     {
